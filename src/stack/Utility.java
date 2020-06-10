@@ -3,6 +3,13 @@ package stack;
 import java.lang.Math;
 
 public class Utility {
+
+    /**
+     * parenthesesMatching Method
+     * checks if the parenthes in the given expression are balanced
+     * @param exp (String)
+     * @return True (if balaned) else False
+     */
     public static boolean parenthesesMatching(String exp){
         Stack<Character> stack = new Stack<Character>(20);
         for(int i = 0; i < exp.length(); i++){
@@ -20,6 +27,12 @@ public class Utility {
        return false;
     }
 
+    /**
+     * convertPostfix Method
+     * converts the given expression from infix to postfix notation
+     * @param exp (String)
+     * @return postfix (String)
+     */
     private static String convertPostfix(String exp){
         String postfix = "";
         Stack<Character> stack = new Stack<Character>(20);
@@ -51,6 +64,13 @@ public class Utility {
         return postfix;
     }
 
+    /**
+     * evalPostfix Method
+     * calls convertPostfix method, then evaluates the postfix
+     * string and returns of the evaulated solution of the exprssion
+     * @param exp (String)
+     * @return solution (int)
+     */
     public static int evalPostfix(String exp){
         exp = convertPostfix(exp);
         Stack<Integer> stack = new Stack<Integer>(20);
@@ -97,11 +117,26 @@ public class Utility {
         return stack.pop();
     }
 
+    /**
+     * isMatchingPair Method
+     * checks if the passed in characters are 
+     * matching paranthesis pairs
+     * @param char1
+     * @param char2
+     * @return true if matching else false
+     */
     private static boolean isMatchingPair(char char1, char char2) { 
         if (char1 == '(' && char2 == ')') return true; 
         return false; 
     }
 
+    /**
+     * priority Method
+     * defines and returns the operator precedence
+     * based on the character operator entered
+     * @param c (char)
+     * @return int
+     */
     private static int priority(char c) {
         switch (c){ 
             case '+': 
@@ -117,5 +152,4 @@ public class Utility {
         } 
         return -1; 
     }
-
 }
